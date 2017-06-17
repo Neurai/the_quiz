@@ -78,9 +78,9 @@ ________________|_______________________|__________________
 #_._______________________________________________________________________
 #                                 Easy quiz
 
-key__1___e =            "1" #"kitten"
-key__2__e =             "2" #"chick"
-key__3__e =             "3" #"bunny"
+key__1___e =            "kitten"
+key__2__e =             "chick"
+key__3__e =             "bunny"
 key_chain_e =           [key__1___e, key__2__e, key__3__e]
 quiz_questions_e  =     ["__1___", "__2__", "__3__"]
 
@@ -99,15 +99,15 @@ ________________________________________________________________________________
 #_._______________________________________________________________________
 #                                 Easy bonus quiz
 
-key__1__e_bonus =             "1"#"Tom"
-key__2__e_bonus =             "2"#"Doe"
-key__3__e_bonus =             "3"#"Ewe"
-key__4__e_bonus =             "4"#"Hen"
-key__5__e_bonus =             "5"#"Mare"
-key__6__e_bonus =             "6"#"Doe"
-key__7__e_bonus =             "7"#"Bitch"
-key__8__e_bonus =             "8"#"Vixen"
-key__9__e_bonus =             "9"#"Bitch"
+key__1__e_bonus =             "Tom"
+key__2__e_bonus =             "Doe"
+key__3__e_bonus =             "Ewe"
+key__4__e_bonus =             "Hen"
+key__5__e_bonus =             "Mare"
+key__6__e_bonus =             "Doe"
+key__7__e_bonus =             "Bitch"
+key__8__e_bonus =             "Vixen"
+key__9__e_bonus =             "Bitch"
 key_chain_e_bonus =           [key__1__e_bonus, key__2__e_bonus, key__3__e_bonus, key__4__e_bonus, key__5__e_bonus, key__6__e_bonus, key__7__e_bonus, key__8__e_bonus, key__9__e_bonus, ]
 quiz_questions_e_bonus  =     ["_1_", "_2_", "_3_","_4_", "_5__", "_6_","__7__", "__8__", "__9__"]
 
@@ -128,10 +128,10 @@ ________________________________________________________________________________
 #_._______________________________________________________________________
 #                                Medium quiz
 
-key____1____m =         "1"#"important"
-key_2_m =               "2"#"has"
-key__3_m =              "3"#"stop"
-key_4_m =               "4"#"new"
+key____1____m =         "important"
+key_2_m =               "has"
+key__3_m =              "stop"
+key_4_m =               "new"
 key_chain_m =           [key____1____m, key_2_m, key__3_m, key_4_m]
 quiz_questions_m  =     ["____1____", "_2_", "__3_", "_4_"]
 
@@ -145,20 +145,20 @@ ________________________________________________________________________________
 |-              "Anyone who _2_ never made a mistake _2_ never tried anything _4_."                  -|
 |-                                                                                                   -|
 |-----------------------------------------------------------------------------------------------------|
-|                           >>>>>>>>> Please type non capitalised <<<<<<<<<                           |
+|                           >>>>>>>>> Please type non capitalized <<<<<<<<<                           |
 |_____________________________________________________________________________________________________|
 """
 #_._______________________________________________________________________
 #                                 Medium bonus quiz
 
-key__1__m_bonus =             "1"#"forgotten"
-key__2__m_bonus =             "2"#"God"
-key__3__m_bonus =             "3"#"equally"
-key__4__m_bonus =             "4"#"is"
-key__5__m_bonus =             "5"#"experience"
-key__6__m_bonus =             "6"#"simply"
-key__7__m_bonus =             "7"#"understand"
-key__8__m_bonus =             "8"#"solution"
+key__1__m_bonus =             "forgotten"
+key__2__m_bonus =             "God"
+key__3__m_bonus =             "equally"
+key__4__m_bonus =             "is"
+key__5__m_bonus =             "experience"
+key__6__m_bonus =             "simply"
+key__7__m_bonus =             "understand"
+key__8__m_bonus =             "solution"
 key_chain_m_bonus =           [key__1__m_bonus, key__2__m_bonus, key__3__m_bonus, key__4__m_bonus, key__5__m_bonus, key__6__m_bonus, key__7__m_bonus, key__8__m_bonus, ]
 quiz_questions_m_bonus  =     ["____1____", "_2_", "___3___","_4", "____5_____", "___6__","____7_____", "___8____",]
 
@@ -175,19 +175,19 @@ ________________________________________________________________________________
 |-                    When the ___8____ _4 simple, _2_ _4 answering.                 -|
 |-                                                                                   -|
 |-------------------------------------------------------------------------------------|
-|                             > All names are capitalised <                           |
+|                             > All names are capitalized <                           |
 |_____________________________________________________________________________________|
 """
 
 #_._______________________________________________________________________
 #                               Hard quiz
 
-key__1_h =             "1" #"Yoda"
-key__2_____h =         "2" #"Han Solo"
-key__3__________h =    "3" #"Princess Leia"
-key__4___________h =   "4" #"Obi Wan Kenobi"
-key__5________h =      "5" #"Darth Vader"
-key__6__h =            "6" #"R2-D2"
+key__1_h =             "Yoda"
+key__2_____h =         "Han Solo"
+key__3__________h =    "Princess Leia"
+key__4___________h =   "Obi Wan Kenobi"
+key__5________h =      "Darth Vader"
+key__6__h =            "R2-D2"
 key_chain_h =           [key__1_h, key__2_____h, key__3__________h, key__4___________h, key__5________h, key__6__h]
 quiz_questions_h  =     ["__1_", "__2_____", "__3__________", "__4___________", "__5________", "__6__"]
 
@@ -200,21 +200,21 @@ ________________________________________________________________________________
 |-         "Aren't you a little short for a storm trooper?" - __3__________                          -|
 |-          "These aren't the droids you're looking for..." - __4___________                         -|
 |-                  "I find your lack of faith disturbing." - __5________                            -|
-|-                                     "Bleep, Bleep Bloop" - __6__   **-**                          -|
+|-                                     "Bleep, Bleep Bloop" - __6__   **-** has hyphen               -|
 |-                                                                                                   -|
 |-----------------------------------------------------------------------------------------------------|
-|   >>>>>>>>> Please type names capitalised, e.g: "Jar Jar Binks" NOT: "jar jar binks" <<<<<<<<<      |
+|   >>>>>>>>> Please type names capitalized, e.g: "Jar Jar Binks" NOT: "jar jar binks" <<<<<<<<<      |
 |_____________________________________________________________________________________________________|
 """
 
 #_._______________________________________________________________________
 #                                 Hard bonus quiz
 
-key__1__h_bonus =             "1"#"Leia Organa"
-key__2__h_bonus =             "2"#"Obi Wan Kenobi"
-key__3__h_bonus =             "3"#"Han Solo"
-key__4__h_bonus =             "4"#"Anakin Skywalker"
-key__5__h_bonus =             "5"#"Jango Fett"
+key__1__h_bonus =             "Leia Organa"
+key__2__h_bonus =             "Obi Wan Kenobi"
+key__3__h_bonus =             "Han Solo"
+key__4__h_bonus =             "Anakin Skywalker"
+key__5__h_bonus =             "Jango Fett"
 key_chain_h_bonus =           [key__1__h_bonus, key__2__h_bonus, key__3__h_bonus, key__4__h_bonus, key__5__h_bonus]
 quiz_questions_h_bonus  =     ["_____1_____", "______2_______", "___3____","_______4________", "____5_____"]
 
@@ -229,17 +229,17 @@ ________________________________________________________________________________
 |-     Just for once, let me look on you with my own eyes. ---   = _______4________  -|
 |-  I'm just a simple man trying to make my way in the universe. = ____5_____        -|
 |-------------------------------------------------------------------------------------|
-|                all names are capitalised <--> no hyphens, use space                 |
+|                all names are capitalized <--> no hyphens, use space                 |
 |_____________________________________________________________________________________|
 """
 
 #_._______________________________________________________________________
 #                                insane quiz
 
-key_a_i =            "1" #"7"
-key_b_i =            "2" #"9"
+key_a_i =            "7"
+key_b_i =            "9"
 key_chain_i =           [key_a_i, key_b_i]
-quiz_questions_i  =     ["_a_", "_b_"]
+quiz_questions_i  =     ["_a_?", "_b_?"]
 
 quiz_difficulty_i = """
 _________________________________________________________________________________
@@ -257,7 +257,7 @@ ________________________________________________________________________________
 #_._______________________________________________________________________
 #                                 insane bonus quiz
 
-key__1__i_bonus =             "1"#"?"
+key__1__i_bonus =             "J"
 key_chain_i_bonus =           [key__1__i_bonus]
 quiz_questions_i_bonus  =     ["?",]
 
@@ -267,11 +267,11 @@ ________________________________________________________________________________
 |-                          - Find the missing letter -                               -|
 |-                            -----------------------                                 -|
 |-                                                                                    -|
-|-       A = 5   |   E = 9   |   I = 5   |   M = 9   |   Q = 5   |   U = 9   |        -|
-|-       Y = 5   |   F = 9   |   J = 5   |   N = 9   |   R = 5   |   V = 9   |        -|
-|-       Z = 5   |   C = 9   |   G = 5   |   K = 9   |   O = 5   |   S = 9   |        -|
-|-       W = 5   |   D = 9   |   H = 5   |   L = 9   |   P = 5   |   T = 9   |        -|
-|-                                 |   X = 5   |                                      -|
+|-       A = 5   |   E = 9   |   I = 13  |   M = 17  |   Q = 21  |   U = 25  |        -|
+|-       Y = 29  |   F = 10  |   J = 14  |   N = 18  |   R = 22  |   V = 26  |        -|
+|-       Z = 30  |   C = 7   |   G = 11  |   K = 15  |   O = 19  |   S = 23  |        -|
+|-       W = 27  |   D = 8   |   H = 12  |   L = 16  |   P = 20  |   T = 24  |        -|
+|-                                 |   X = 28  |                                      -|
 |-                                                                                    -|
 |-                               _____       _____                                    -|
 |-                              |     |     |     |                                   -|
@@ -285,7 +285,7 @@ ________________________________________________________________________________
 |-                              |_____|     |_____|                                   -|
 |-                                                                                    -|
 |--------------------------------------------------------------------------------------|
-|                            Write letter capitalised!                                 |
+|                            Write letter capitalized!                                 |
 |______________________________________________________________________________________|
 """
 
@@ -304,10 +304,10 @@ quiz_compleate_status_i = [0]
 #                              Extra features
 
 #would like a hint system
-#yet to impliment method of resetting all states to new. #quiz_reset = [quiz_compleate_status_e[0], quiz_compleate_status_m[0],quiz_compleate_status_h[0], quiz_compleate_status_i[0]]
+#yet to implement method of resetting all states to new. #quiz_reset = [quiz_compleate_status_e[0], quiz_compleate_status_m[0],quiz_compleate_status_h[0], quiz_compleate_status_i[0]]
 difficulties_l = ["easy", "medium", "hard", "insane" ]
 #_._______________________________________________________________________
-#                      Quiz per difficulty. Functions:
+#                      Quiz per difficulty. Functions: these are the functions running each quiz
 def quiz_e():
     quiz_question = 0
     attempts = 0
@@ -327,7 +327,7 @@ def quiz_e():
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
         if attempts >= 5:
-            print "Try again!"*10000 #hinders user from scrolling up in terminal to check answers. and looks fun
+            print "Try again!"*10000 #Hinders user from scrolling up in the terminal to check answers. And looks fun
             return the_quiz()
     mega_points[0] += 5
     quiz_compleate_status_e[0] = 1
@@ -467,7 +467,7 @@ def quiz_i():
             if raw_input("Please fill in " + quiz_questions_i[quiz_question] + " ") == key_chain_i[quiz_question]:
                 quiz_question += 1
                 attempts = 0
-                quiz_difficulty_i_proxy = quiz_difficulty_i_proxy.replace(quiz_questions_i[quiz_question-1],key_chain_i[quiz_question-1])
+                quiz_difficulty_i_proxy = quiz_difficulty_i_proxy.replace(quiz_questions_i[quiz_question-1],key_chain_i[quiz_question-1] + "   ")
                 print quiz_difficulty_i_proxy
                 print random_ui_words("winner")
             else:
@@ -573,7 +573,7 @@ def quiz_runner(diff):#Takes string input from quiz_select, and runs appropriate
             return quiz_i_bonus()
         return the_quiz()
 
-def quiz_select(user_input): #uses the user input from the_quiz to run the apropriate quiz, also allows for variants in answers as defined globaly by difficulty_answers_list
+def quiz_select(user_input): #Uses the user input from the_quiz to run the appropriate quiz, also allows for variants in answers as defined globally by difficulty_answers_list
     if difficulty_answers_list[0].find(user_input) >= 2: #Easy
         return quiz_runner("easy")
     if difficulty_answers_list[1].find(user_input) >= 2: #Medium
@@ -585,7 +585,7 @@ def quiz_select(user_input): #uses the user input from the_quiz to run the aprop
         return quiz_runner("insane")
     return "false"
 
-def input_check(user_input):#used to check if inputs are correct answers without running quiz, # 1 =east 2=medium 3=hard 4=insane ,# added this after quiz select to allow for inccorect answers.
+def input_check(user_input):#used to check if inputs are correct answers without running quiz, # 1 =east 2=medium 3=hard 4=insane. # added this after quiz select to allow for incorrect answers.
     if difficulty_answers_list[0].find(user_input) >= 2: #Easy
         return 1
     if difficulty_answers_list[1].find(user_input) >= 2: #Medium
@@ -602,7 +602,7 @@ def the_quiz():#the_quiz
     print random_ui_words("greetings")
     input_holder = "0"
     input_holder = raw_input("Please type in a difficulty: ")
-    if quiz_status("AllDoneChek") == True:
+    if quiz_status("AllDoneChek") == True:#are all options complete?
         print "You Win!!"*mega_points[0]
         print " You got max ", mega_points[0], "Mega points!!"
         return
