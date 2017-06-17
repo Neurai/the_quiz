@@ -4,7 +4,7 @@
 #22222
 #333333
 #_._______________________________________________________________________
-#                               Quiz start
+#                               Random/ tweaks
 import random
 
 mega_points = [0]
@@ -56,7 +56,8 @@ def random_ui_words(style):
         return random.choice(greeings)
     if style == "winner":
         return random.choice(winner)
-
+#_._______________________________________________________________________
+#                               Intro screen
 game_intro = """
 ________________|_______________________|__________________
 |-----------=>>>!! Welcome to the quiz !!<<<=-------------|
@@ -73,15 +74,7 @@ ________________|_______________________|__________________
 |- >>>>>>>>>> Type in "Quit" or "q" to exit <<<<<<<<<<<< -|
 |__________-=|=-_____________|___________-=|=-____________|
 """
-#_._______________________________________________________________________
-#                              Extra features
-# status: 0 = none finished, 1 = bonus round available, 2 = finished all
 
-#yet to impliment method of resetting all quiz states to new: 0 with a for loop? needs changing
-#quiz_reset = [quiz_compleate_status_e[0], quiz_compleate_status_m[0],quiz_compleate_status_h[0], quiz_compleate_status_i[0]]
-#
-you_win = random_ui_words("winner") * mega_points[0]
-difficulties_l = ["easy", "medium", "hard", "insane" ]
 #_._______________________________________________________________________
 #                                 Easy quiz
 
@@ -100,6 +93,37 @@ ________________________________________________________________________________
 |-                            A chicken a __2__                                 -|
 |-                           A rabbit has a __3__                               -|
 |--------------------------------------------------------------------------------|
+|________________________________________________________________________________|
+"""
+#_._______________________________________________________________________
+#                                 Easy bonus quiz
+#For Ui keep key (__1__) the same length as answer. e.g. for improve: use __1____
+#I use find (Ctrl + f) to change multiple items. Find "_e_bonus" and replace the name of the quiz
+#1, 2 and 3 are placeholders to test.
+
+key__1__e_bonus =             "1"#"Tom"
+key__2__e_bonus =             "2"#"Doe"
+key__3__e_bonus =             "3"#"Ewe"
+key__4__e_bonus =             "4"#"Hen"
+key__5__e_bonus =             "5"#"Mare"
+key__6__e_bonus =             "6"#"Doe"
+key__7__e_bonus =             "7"#"Bitch"
+key__8__e_bonus =             "8"#"Vixen"
+key__9__e_bonus =             "9"#"Bitch"
+key_chain_e_bonus =           [key__1__e_bonus, key__2__e_bonus, key__3__e_bonus, key__4__e_bonus, key__5__e_bonus, key__6__e_bonus, key__7__e_bonus, key__8__e_bonus, key__9__e_bonus, ]
+quiz_questions_e_bonus  =     ["_1_", "_2_", "_3_","_4_", "_5__", "_6_","__7__", "__8__", "__9__"]
+
+quiz_difficulty_e_bonus = """
+_________________________________________________________________________________
+|----------------------->}>? Animal Names: Female  ?<)<--------------------------|
+|-              - What are the female names 0f these animals? -                 -|
+|-                          -----------------------                             -|
+|-            Cat = _1_    ||   Chicken = _4_     ||   Dog = __7__              -|
+|-           Deer = _2_    ||     Horse = _5__    ||   Fox = __8__              -|
+|-          Sheep = _3_    ||    Rabbit = _6_     ||  Wolf = __9__              -|
+|-                                                                              -|
+|--------------------------------------------------------------------------------|
+|                         > All names are capitalised <                          |
 |________________________________________________________________________________|
 """
 #_._______________________________________________________________________
@@ -173,7 +197,7 @@ ________________________________________________________________________________
 |________________________________________________________________________________|
 """
 #_._______________________________________________________________________
-#                             Global V
+#                             Global Var
 
 difficulty_answers_list = ["   easy Easy 1", "    medium Medium 2", "    hard Hard 3",#The possible user input options available for each difficulty\/. i use the .find method to scan this list against the users input, allowing for more than one option when typing.
                             "     insane Insane 4","     q Q quit QUIT exit EXIT Quit "]
@@ -182,6 +206,14 @@ quiz_compleate_status_e = [0]
 quiz_compleate_status_m = [0]
 quiz_compleate_status_h = [0]
 quiz_compleate_status_i = [0]
+
+#_._______________________________________________________________________
+#                              Extra features
+
+#would like a hint system
+#yet to impliment method of resetting all states to new. #quiz_reset = [quiz_compleate_status_e[0], quiz_compleate_status_m[0],quiz_compleate_status_h[0], quiz_compleate_status_i[0]]
+you_win = random_ui_words("winner") * mega_points[0]
+difficulties_l = ["easy", "medium", "hard", "insane" ]
 #_._______________________________________________________________________
 #                      Quiz per difficulty. Functions:
 def quiz_e():
@@ -208,6 +240,30 @@ def quiz_e():
     quiz_compleate_status_e[0] = 1
     return the_quiz()
 
+def quiz_e_bonus():
+    quiz_question = 0
+    attempts = 0
+    quiz_difficulty_e_bonus_proxy = quiz_difficulty_e_bonus
+    input_holder = "new"
+    print quiz_difficulty_e_bonus
+    while quiz_question < len(quiz_questions_e_bonus):
+        if attempts < 5:
+            input_holder = raw_input("Please fill in " + quiz_questions_e_bonus[quiz_question] + " ")
+            if input_holder == key_chain_e_bonus[quiz_question]:
+                quiz_question += 1
+                attempts = 0
+                quiz_difficulty_e_bonus_proxy = quiz_difficulty_e_bonus_proxy.replace(quiz_questions_e_bonus[quiz_question-1],key_chain_e_bonus[quiz_question-1])
+                print quiz_difficulty_e_bonus_proxy
+                print random_ui_words("winner")
+            else:
+                attempts += 1
+                print "Are you even human?.. You have",5 - attempts, "attempts left"
+        if attempts >= 5:
+            return "You lose"
+    mega_points[0] += 45
+    quiz_compleate_status_e[0] += 1
+    return the_quiz()
+
 def quiz_m():
     quiz_question = 0
     attempts = 0
@@ -229,9 +285,8 @@ def quiz_m():
         if attempts >= 5:
             return "You lose"
     mega_points[0]  += 15
-    quiz_compleate_status_m[0] = 1
+    quiz_compleate_status_m[0] += 1
     return the_quiz()
-
 
 def quiz_h():
     quiz_question = 0
@@ -253,7 +308,7 @@ def quiz_h():
         if attempts >= 5:
             return "You lose"
     mega_points[0] += 30
-    quiz_compleate_status_h[0] = 1
+    quiz_compleate_status_h[0] += 1
     return the_quiz()
 
 def quiz_i():
@@ -280,9 +335,8 @@ def quiz_i():
 
 #_._______________________________________________________________________
 #                                  Game
-quiz_key = (ui_tweak("MegaPoints999"),"What do we call young animals?", "Know these Albert Einstein-Quotes?", "Know who said these Star Wars lines?", "Complete the series.       " )
 
-def quiz_printer():
+def quiz_printer():#this prints game_intro string with .format
     game_intro_proxy = game_intro
     easy_bonus = "What do we call young animals?    "
     medium_bonus = "Know these Albert Einstein-Quotes?"
@@ -298,13 +352,13 @@ def quiz_printer():
             insane_bonus = "-     <<<BONUS ROUND>>>            -"
 
     if quiz_compleate_status_e[0] == 2:
-            easy_bonus = "-     <<<____FIN____>>>          -"
+            easy_bonus = "-     <<<<<<<FIN>>>>>>>          -"
     if quiz_compleate_status_m[0] == 2:
-            medium_bonus = "-     <<<____FIN____>>>          -"
+            medium_bonus = "-     <<<<<<<FIN>>>>>>>          -"
     if quiz_compleate_status_h[0] == 2:
-            hard_bonus = "-     <<<____FIN____>>>            -"
+            hard_bonus = "-     <<<<<<<FIN>>>>>>>            -"
     if quiz_compleate_status_i[0] == 2:
-            insane_bonus = "-     <<<____FIN____>>>            -"
+            insane_bonus = "-     <<<<<<<FIN>>>>>>>            -"
     print game_intro_proxy.format(ui_tweak("MegaPoints999"), easy_bonus, medium_bonus, hard_bonus, insane_bonus)
 
 def quiz_status(status_check): # status: 0 = none finished, 1 = bonus round available, 2 = completed both normal and bonus quiz
@@ -325,49 +379,49 @@ def quiz_runner(diff):#Takes string input from quiz_select, and runs appropriate
     if diff == "easy":
         if quiz_status("easy") == 0:
             return quiz_e()
-        return "quiz_e_bonus()"
+        if quiz_status("easy") == 1:
+            return quiz_e_bonus()
+        return the_quiz()
     if diff == "medium":
         if quiz_status("medium") == 0:
             return quiz_m()
-        return "quiz_m_bonus()"
+        if quiz_status("medium") == 1:
+            return "quiz_m_bonus()"
+        return the_quiz()
     if diff == "hard":
         if quiz_status("hard") == 0:
             return quiz_h()
-        return "quiz_h_bonus()"
+        if quiz_status("hard") == 1:
+            return "quiz_h_bonus()"
+        return the_quiz()
     if diff == "insane":
         if quiz_status("insane") == 0:
             return quiz_i()
-        return "quiz_i_bonus()"
+        if quiz_status("insane") == 1:
+            return "quiz_i_bonus()"
+        return the_quiz()
 
 def quiz_select(user_input): #uses the user input from the_quiz to run the apropriate quiz, also allows for variants in answers as defined globaly by difficulty_answers_list
-    #Easy
-    if difficulty_answers_list[0].find(user_input) >= 2:
+    if difficulty_answers_list[0].find(user_input) >= 2: #Easy
         return quiz_runner("easy")
-    #Medium
-    if difficulty_answers_list[1].find(user_input) >= 2:
+    if difficulty_answers_list[1].find(user_input) >= 2: #Medium
         if user_input != "i": #this allows the use of "i" for insane difficulty.
             return quiz_runner("medium")
-    #Hard
-    if difficulty_answers_list[2].find(user_input) >= 2:
+    if difficulty_answers_list[2].find(user_input) >= 2: #Hard
         return quiz_runner("hard")
-    #Insane
-    if difficulty_answers_list[3].find(user_input) >= 2:
+    if difficulty_answers_list[3].find(user_input) >= 2: #Insane
         return quiz_runner("insane")
     return "false"
 
-def input_check(user_input):#used to check if input are available answers with out running quiz, # 1 =east 2=medium 3=hard 4=insane ,# added this after quiz select to allow for inccorect answers.
-    #Easy
-    if difficulty_answers_list[0].find(user_input) >= 2:
+def input_check(user_input):#used to check if inputs are correct answers without running quiz, # 1 =east 2=medium 3=hard 4=insane ,# added this after quiz select to allow for inccorect answers.
+    if difficulty_answers_list[0].find(user_input) >= 2: #Easy
         return 1
-    #Medium
-    if difficulty_answers_list[1].find(user_input) >= 2:
+    if difficulty_answers_list[1].find(user_input) >= 2: #Medium
         if user_input != "i": #this allows the use of "i" for insane difficulty.
             return 2
-    #Hard
-    if difficulty_answers_list[2].find(user_input) >= 2:
+    if difficulty_answers_list[2].find(user_input) >= 2: #Hard
         return 3
-    #Insane
-    if difficulty_answers_list[3].find(user_input) >= 2:
+    if difficulty_answers_list[3].find(user_input) >= 2: #Insane
         return 4
     return False
 
