@@ -5,6 +5,8 @@
 #333333
 #_._______________________________________________________________________
 #                               Quiz start
+import random
+
 mega_points = [0]
 def ui_tweak(ui_element):
     if ui_element == "MegaPoints999": #adjust the ui to fit up to 999, len(23)
@@ -15,6 +17,44 @@ def ui_tweak(ui_element):
         if mega_points[0] > 999:
             return "Total Mega Points! :" + "999"
         return "Total Mega Points! :" +  str(mega_points[0])
+
+def random_ui_words(style):
+    greeings = ["Hello sunshine!", "Howdy partner!", "What's kickin' little chicken?", "Ahoy matey!", "Hiya!",                "At least we meet for the first time for the last time!", "I like your face.", "Whats cookin good lookin'?",
+                "Aloha", "Hola!", "Bonjour!", "Hallo!!", "Konnichiwa!", "I'm Batman!", "Here's Johnny!", "Ello govnuh!",
+                "Top o the mornin to ya!", "GOOOOOD MORNING VIETNAM!", "Why hello there!", "Look who it is!",
+                "Look what the cat dragged in!", "greets!", "what's cooking?", "what's cracking?", "yello!",
+                "a-yo!", "G'day!", "Good to see you!", "Nice to see you!", "Long time no see!",
+                "It's been a while!", "How have you been?", "G'day", "How do you do?", "G'day",
+                "It's nice to meet you!", "Pleased to meet you!", "Good day!", "Yo!",
+                "Are you OK?", "You alright?", "Alright mate?", "Howdy!","Sup?", "Whazzup?", "G'day mate!"]
+    winner   = ["Groovy!","Righteous!", 'Nifty!', 'Copasetic!', 'Future Pulitzer Prize winner!', 'Future rock star!',
+                'Future CEO!', 'You shine as brightly as the sun!', 'Success comes to those who work their ass off.', 'Felicitations',
+                'Herzlichen Gluckwunsch', 'I am overjoyed with your success. Shine on!', "You've made us all so proud. I am very happy for you.",
+                'Good work. Your hard work has truly paid off.', "You've got the right mix of dedication and enthusiasm. Keep it up!",
+                'Congratulations for achieving so much on your own steam.', "It's the time for recognition! Well done my dear friend.",
+                'Congratulations for making it big. You have earned all the praises you are now receiving.',
+                'Congrats. Am in awe of you for the rest of my life', 'May this moment last forever. Congratulations.',
+                'You are our shining star. Well done.', "Congratulations for scaling new heights and setting new standards.",
+                "May this moment last forever. Congratulations.","There was never a doubt in our hearts that you were destined for success. Congratulations on your achievement!",
+                "Many, many congratulations on your impressive performance, you have truly set a new record!",
+                "Your will to push and never give up has brought you this far, you deserve this and more. Congratulations for a marvelous achievement!",
+                "We are taught that the sky should always be the limit, but you have showed us that truly we should think beyond the sky.",
+                "Some are destined to fit in, but you were born to stand out! You have made me proud","Congratulations on a brilliant victory!",
+                "Life being a journey, Success has brought you many miles ahead of many people. Congratulations",
+                "Cheers to never giving up! Enjoy the fruits of you labor and may you always succeed in whatever you do. Congratulations my friend!",
+                "Dreams for success rarely materialize without dedication, perseverance, passion and hard work combined to make it a reality.",
+                "Well done!", "Congratulations and thank you!", "It is inspirational to witness hard work finally give birth to success. Congratulations!",
+                "you worked hard, you deserve it, you have got it! Please accept my congratulations on this wonderful recognition of your merits",
+                "First they ignore you... Then they laugh and fight against you... Then you win!",
+                "Congratulations for your fabulous victory! You deserve it every bit! Aim for the stars!",
+                "Congratulations on your success! You have made us all proud. Keep up the good work!",
+                "If Oscars were given for a job well done, I'd nominate you! Congratulations for your fantastic achievement!",
+                "You, why you little, Champion!", "C-C-C-Combo", "Your hard work and effort have paid off! A success well deserved, an occasion worth celebrating! Congratulations!",
+                "Your achievements speaks itself about your capabilities. Slow and steady makes it to the top! Good job!"]
+    if style == "greetings":
+        return random.choice(greeings)
+    if style == "winner":
+        return random.choice(winner)
 
 game_intro = """
 ________________|_______________________|__________________
@@ -31,7 +71,7 @@ ________________|_______________________|__________________
 |----------------------------|----------------------------|
 |- >>>>>>>>>> Type in "Quit" or "q" to exit <<<<<<<<<<<< -|
 |__________-=|=-_____________|___________-=|=-____________|
-""" #this never updates after with the points.
+"""
 #_._______________________________________________________________________
 #                              Extra features
 # status: 0 = none finished, 1 = bonus round available, 2 = finished all
@@ -39,7 +79,7 @@ ________________|_______________________|__________________
 #yet to impliment method of resetting all quiz states to new: 0 with a for loop? needs changing
 #quiz_reset = [quiz_compleate_status_e[0], quiz_compleate_status_m[0],quiz_compleate_status_h[0], quiz_compleate_status_i[0]]
 #
-you_win = " !!YOU--WIN!! " * mega_points[0]
+you_win = random_ui_words("winner") * mega_points[0]
 difficulties_l = ["easy", "medium", "hard", "insane" ]
 #_._______________________________________________________________________
 #                                 Easy quiz
@@ -134,7 +174,9 @@ ________________________________________________________________________________
 #_._______________________________________________________________________
 #                             Global V
 
-#def quiz_status(n):
+difficulty_answers_list = ["   easy Easy 1", "    medium Medium 2", "    hard Hard 3",#The possible user input options available for each difficulty\/. i use the .find method to scan this list against the users input, allowing for more than one option when typing.
+                            "     insane Insane 4","     q Q quit QUIT exit EXIT Quit "]
+#def quiz_status(n): \/
 quiz_compleate_status_e = [0]
 quiz_compleate_status_m = [0]
 quiz_compleate_status_h = [0]
@@ -145,9 +187,8 @@ def quiz_e():
     quiz_question = 0
     attempts = 0
     quiz_difficulty_e_proxy = quiz_difficulty_e
-    game_intro_proxy = game_intro
 #Help^^^ Please tell me why i needed this? what is it called?
-#without it i had errors further in the code tryng to call quiz_difficulty_e further in the function using .replace, saying it was called before being defined.
+#without it i had errors trying to call quiz_difficulty_e further in the function using .replace, saying it was called before being defined.
     input_holder = "e"
     print quiz_difficulty_e
     while quiz_question < len(quiz_questions_e):
@@ -158,7 +199,7 @@ def quiz_e():
                 attempts = 0
                 quiz_difficulty_e_proxy = quiz_difficulty_e_proxy.replace(quiz_questions_e[quiz_question-1],key_chain_e[quiz_question-1])
                 print quiz_difficulty_e_proxy
-                print "Congratulations!! Next!"
+                print random_ui_words("winner")
             else:
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
@@ -183,7 +224,7 @@ def quiz_m():
                 attempts = 0
                 quiz_difficulty_m_proxy = quiz_difficulty_m_proxy.replace(quiz_questions_m[quiz_question-1],key_chain_m[quiz_question-1])
                 print quiz_difficulty_m_proxy
-                print "Congratulations!! Next!"
+                print random_ui_words("winner")
             else:
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
@@ -207,7 +248,7 @@ def quiz_h():
                 attempts = 0
                 quiz_difficulty_h_proxy = quiz_difficulty_h_proxy.replace(quiz_questions_h[quiz_question-1],key_chain_h[quiz_question-1])
                 print quiz_difficulty_h_proxy
-                print "Congratulations!! Next!"
+                print random_ui_words("winner")
             else:
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
@@ -229,7 +270,7 @@ def quiz_i():
                 attempts = 0
                 quiz_difficulty_i_proxy = quiz_difficulty_i_proxy.replace(quiz_questions_i[quiz_question-1],key_chain_i[quiz_question-1])
                 print quiz_difficulty_i_proxy
-                print "Congratulations!! Next!"
+                print random_ui_words("winner")
             else:
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
@@ -237,7 +278,7 @@ def quiz_i():
             return "You lose"
     mega_points[0] += 50
     quiz_compleate_status_i[0] = True
-    return "You got  >> 5 Mega points!! << for beating Hard" ,the_quiz()
+    return the_quiz()
 
 #_._______________________________________________________________________
 #                                  Game
@@ -250,7 +291,7 @@ def quiz_printer():
     hard_bonus = "Know who said these Star Wars lines?"
     insane_bonus = "Complete the series.                "
     if quiz_compleate_status_e[0] == 1:
-            easy_bonus = "-     <<<BONUS ROUND>>>          -"
+            easy_bonus = "-       <<<BONUS ROUND>>>        -"
     if quiz_compleate_status_m[0] == 1:
             medium_bonus = "-     <<<BONUS ROUND>>>          -"
     if quiz_compleate_status_h[0] == 1:
@@ -268,21 +309,21 @@ def quiz_printer():
             insane_bonus = "-     <<<____FIN____>>>            -"
     print game_intro_proxy.format(ui_tweak("MegaPoints999"), easy_bonus, medium_bonus, hard_bonus, insane_bonus)
 
-def quiz_status(d): # status: 0 = none finished, 1 = bonus round available, 2 = finished all
-    if d == "AllDoneChek":
+def quiz_status(status_check): # status: 0 = none finished, 1 = bonus round available, 2 = completed both normal and bonus quiz
+    if status_check == "AllDoneChek":
         if quiz_compleate_status_e[0] and quiz_compleate_status_m[0] and quiz_compleate_status_h[0] and quiz_compleate_status_i[0] == 2:
             return False
         return True
-    if d == "easy":
+    if status_check == "easy":
         return quiz_compleate_status_e[0]
-    if d == "medium":
+    if status_check == "medium":
         return quiz_compleate_status_m[0]
-    if d == "hard":
+    if status_check == "hard":
         return quiz_compleate_status_h[0]
-    if d == "insane":
+    if status_check == "insane":
         return quiz_compleate_status_i[0]
 
-def quiz_runner(diff):
+def quiz_runner(diff):#Takes string input from quiz_select, and runs appropriate quiz and checks if bonus1 or first0.
     if diff == "easy":
         if quiz_status("easy") == 0:
             return quiz_e()
@@ -300,41 +341,55 @@ def quiz_runner(diff):
             return quiz_i()
         return "quiz_i_bonus()"
 
-def the_quiz():
+def quiz_select(user_input): #uses the user input from the_quiz to run the apropriate quiz, also allows for variants in answers as defined globaly by difficulty_answers_list
+    #Easy
+    if difficulty_answers_list[0].find(user_input) >= 2:
+        return quiz_runner("easy")
+    #Medium
+    if difficulty_answers_list[1].find(user_input) >= 2:
+        if user_input != "i": #this allows the use of "i" for insane difficulty.
+            return quiz_runner("medium")
+    #Hard
+    if difficulty_answers_list[2].find(user_input) >= 2:
+        return quiz_runner("hard")
+    #Insane
+    if difficulty_answers_list[3].find(user_input) >= 2:
+        return quiz_runner("insane")
+    return "false"
+
+def input_check(user_input):#used to check if input are available answers with out running quiz, # 1 =east 2=medium 3=hard 4=insane ,# added this after quiz select to allow for inccorect answers.
+    #Easy
+    if difficulty_answers_list[0].find(user_input) >= 2:
+        return 1
+    #Medium
+    if difficulty_answers_list[1].find(user_input) >= 2:
+        if user_input != "i": #this allows the use of "i" for insane difficulty.
+            return 2
+    #Hard
+    if difficulty_answers_list[2].find(user_input) >= 2:
+        return 3
+    #Insane
+    if difficulty_answers_list[3].find(user_input) >= 2:
+        return 4
+    return False
+
+def the_quiz():#the_quiz
     quiz_printer()
-    print "Welcome!!"
+    print random_ui_words("greetings")
     input_holder = "0"
-    difficulty_answers_list = ["   easy Easy 1", "    medium Medium 2", "    hard Hard 3","     insane Insane 4","     q Q quit QUIT exit EXIT Quit "] # would have done this better with another attempt, I wanted to increase the amount of possible answers, this wouldnt work in many situations.
-    while input_holder != -1:
-        if input_holder != "0":
-            quiz_printer()
-            print """ "Can you get all the points? Probably not... Type 1 for easy. <<" """
-        if quiz_status("AllDoneChek") == False:
-            print you_win
-            break
-        input_holder = raw_input("Please type in a difficulty: ")
-        #Easy
-        if difficulty_answers_list[0].find(input_holder) >= 2:
-            quiz_runner("easy")
-            break
-        #Medium
-        if difficulty_answers_list[1].find(input_holder) >= 2: #i is meant for other difficuly
-            if input_holder != "i":
-                quiz_runner("medium")
-                break
-        #Hard
-        if difficulty_answers_list[2].find(input_holder) >= 2:
-            quiz_runner("hard")
-            break
-        #Insane
-        if difficulty_answers_list[3].find(input_holder) >= 2:
-            quiz_runner("insane")
-            break
-        #checking if user wants to quit
-        if difficulty_answers_list[4].find(input_holder) >= 2:
+    if input_holder != "0":
+        quiz_printer()
+        print """ "Can you get all the points? Probably not... Type 1 for easy. <<" """
+    if quiz_status("AllDoneChek") == False:
+        print you_win
+    input_holder = raw_input("Please type in a difficulty: ")
+    if input_check(input_holder) == 1 or 2 or 3 or 4:
+        quiz_select(input_holder)
+    if input_check(input_holder) == False:
+        if difficulty_answers_list[4].find(input_holder) >= 2:#checks if the input was user wanting to quit,  if not assumes a mistake is made in input and returns quiz again for another go.
             ui_tweak("MegaPoints999")
-            print "Thanks for playing,"
-            break
-
-
+            print "Thanks for Quitting, I knew you couldn't finish! HAHAHAHA!!!"
+            return
+            input_holder = quiz_select(input_holder)
+        the_quiz()
 the_quiz()
