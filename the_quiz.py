@@ -19,7 +19,8 @@ def ui_tweak(ui_element):
         return "Total Mega Points! :" +  str(mega_points[0])
 
 def random_ui_words(style):
-    greeings = ["Hello sunshine!", "Howdy partner!", "What's kickin' little chicken?", "Ahoy matey!", "Hiya!",                "At least we meet for the first time for the last time!", "I like your face.", "Whats cookin good lookin'?",
+    greeings = ["Hello sunshine!", "Howdy partner!", "What's kickin' little chicken?", "Ahoy matey!", "Hiya!",
+                "At least we meet for the first time for the last time!", "I like your face.", "Whats cookin good lookin'?",
                 "Aloha", "Hola!", "Bonjour!", "Hallo!!", "Konnichiwa!", "I'm Batman!", "Here's Johnny!", "Ello govnuh!",
                 "Top o the mornin to ya!", "GOOOOOD MORNING VIETNAM!", "Why hello there!", "Look who it is!",
                 "Look what the cat dragged in!", "greets!", "what's cooking?", "what's cracking?", "yello!",
@@ -154,7 +155,7 @@ ________________________________________________________________________________
 #                                insane quiz
 
 key_a_i =            "1" #"7"
-key_b_i =            "2" #" 9"
+key_b_i =            "2" #"9"
 key_chain_i =           [key_a_i, key_b_i]
 quiz_questions_i  =     ["_a_", "_b_"]
 
@@ -187,8 +188,6 @@ def quiz_e():
     quiz_question = 0
     attempts = 0
     quiz_difficulty_e_proxy = quiz_difficulty_e
-#Help^^^ Please tell me why i needed this? what is it called?
-#without it i had errors trying to call quiz_difficulty_e further in the function using .replace, saying it was called before being defined.
     input_holder = "e"
     print quiz_difficulty_e
     while quiz_question < len(quiz_questions_e):
@@ -205,7 +204,6 @@ def quiz_e():
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
         if attempts >= 5:
             return "You lose"
-    game_intro_proxy = game_intro.replace("What do we call young animals?", "-    <<<<BONUS ROUND>>>      -")
     mega_points[0] += 5
     quiz_compleate_status_e[0] = 1
     return the_quiz()
