@@ -3,9 +3,9 @@
 #1111
 #22222
 #333333
+import random
 #_._______________________________________________________________________
 #                               Random/ tweaks
-import random
 
 mega_points = [0]
 def ui_tweak(ui_element):
@@ -60,9 +60,9 @@ def random_ui_words(style):
 #                               Intro screen
 game_intro = """
 ________________|_______________________|__________________
-|-----------=>>>!! Welcome to the quiz !!<<<=-------------|
-|-              -------------------------                -|
-|-   -Please write out the difficulty  you can handle-   -|
+|------------=>>>!! Welcome to the quiz !!<<<=------------|
+|-               -------------------------               -|
+|-   -Please write out the difficulty you can handle!-   -|
 |-              ___________________________              -|
 |-             |  {}  |             -|
 |-                                                       -|
@@ -95,11 +95,9 @@ ________________________________________________________________________________
 |--------------------------------------------------------------------------------|
 |________________________________________________________________________________|
 """
+
 #_._______________________________________________________________________
 #                                 Easy bonus quiz
-#For Ui keep key (__1__) the same length as answer. e.g. for improve: use __1____
-#I use find (Ctrl + f) to change multiple items. Find "_e_bonus" and replace the name of the quiz
-#1, 2 and 3 are placeholders to test.
 
 key__1__e_bonus =             "1"#"Tom"
 key__2__e_bonus =             "2"#"Doe"
@@ -126,6 +124,7 @@ ________________________________________________________________________________
 |                         > All names are capitalised <                          |
 |________________________________________________________________________________|
 """
+
 #_._______________________________________________________________________
 #                                Medium quiz
 
@@ -137,6 +136,7 @@ key_chain_m =           [key____1____m, key_2_m, key__3_m, key_4_m]
 quiz_questions_m  =     ["____1____", "_2_", "__3_", "_4_"]
 
 quiz_difficulty_m = """
+
 _______________________________________________________________________________________________________
 |------------------------------>]>? Know these Albert Einstein-Quotes ?<\<----------------------------|
 |-                                                                                                   -|
@@ -148,6 +148,37 @@ ________________________________________________________________________________
 |                           >>>>>>>>> Please type non capitalised <<<<<<<<<                           |
 |_____________________________________________________________________________________________________|
 """
+#_._______________________________________________________________________
+#                                 Medium bonus quiz
+
+key__1__m_bonus =             "1"#"forgotten"
+key__2__m_bonus =             "2"#"God"
+key__3__m_bonus =             "3"#"equally"
+key__4__m_bonus =             "4"#"is"
+key__5__m_bonus =             "5"#"experience"
+key__6__m_bonus =             "6"#"simply"
+key__7__m_bonus =             "7"#"understand"
+key__8__m_bonus =             "8"#"solution"
+key_chain_m_bonus =           [key__1__m_bonus, key__2__m_bonus, key__3__m_bonus, key__4__m_bonus, key__5__m_bonus, key__6__m_bonus, key__7__m_bonus, key__8__m_bonus, ]
+quiz_questions_m_bonus  =     ["____1____", "_2_", "___3___","_4", "____5_____", "___6__","____7_____", "___8____",]
+
+quiz_difficulty_m_bonus = """
+______________________________________________________________________________________
+|---------------------->}>? Know these Albert Einstein-Quotes ?<)<--------------------|
+|-                - Complete these not so famous sayings from Albert -               -|
+|-                              -----------------------                              -|
+|-                                                                                   -|
+|- Education _4 what remains after one has ____1____ what one has learned in school. -|
+|-              Before _2_ we are all ___3___ wise - and ___3___ foolish.            -|
+|-                     The only source of knowledge _4 ____5_____.                   -|
+|-       If you can't explain it ___6__, you don't ____7_____ it well enough.        -|
+|-                    When the ___8____ _4 simple, _2_ _4 answering.                 -|
+|-                                                                                   -|
+|-------------------------------------------------------------------------------------|
+|                             > All names are capitalised <                           |
+|_____________________________________________________________________________________|
+"""
+
 #_._______________________________________________________________________
 #                               Hard quiz
 
@@ -169,12 +200,39 @@ ________________________________________________________________________________
 |-         "Aren't you a little short for a storm trooper?" - __3__________                          -|
 |-          "These aren't the droids you're looking for..." - __4___________                         -|
 |-                  "I find your lack of faith disturbing." - __5________                            -|
-|-                                     "Bleep, Bleep Bloop" - __6__                                  -|
+|-                                     "Bleep, Bleep Bloop" - __6__   **-**                          -|
 |-                                                                                                   -|
 |-----------------------------------------------------------------------------------------------------|
-|   >>>>>>>>> Please type names capitalised, e.g: "Jar Jar Binks"   NOT:  "jar jar binks" <<<<<<<<<   |
+|   >>>>>>>>> Please type names capitalised, e.g: "Jar Jar Binks" NOT: "jar jar binks" <<<<<<<<<      |
 |_____________________________________________________________________________________________________|
 """
+
+#_._______________________________________________________________________
+#                                 Hard bonus quiz
+
+key__1__h_bonus =             "1"#"Leia Organa"
+key__2__h_bonus =             "2"#"Obi Wan Kenobi"
+key__3__h_bonus =             "3"#"Han Solo"
+key__4__h_bonus =             "4"#"Anakin Skywalker"
+key__5__h_bonus =             "5"#"Jango Fett"
+key_chain_h_bonus =           [key__1__h_bonus, key__2__h_bonus, key__3__h_bonus, key__4__h_bonus, key__5__h_bonus]
+quiz_questions_h_bonus  =     ["_____1_____", "______2_______", "___3____","_______4________", "____5_____"]
+
+quiz_difficulty_h_bonus = """
+______________________________________________________________________________________
+|--------------------->!>? Know who said these Star Wars-Quotes ?<|<------------------|
+|-                              - Who said these lines?? -                           -|
+|-                                ----------------------                             -|
+|-       Help me, Obi-Wan Kenobi. You're my only hope.  ------   = _____1_____       -|
+|-           The Force will be with you. Always.  ------------   = ______2_______    -|
+|-                 Never tell me the odds!   -----------------   = ___3____          -|
+|-     Just for once, let me look on you with my own eyes. ---   = _______4________  -|
+|-  I'm just a simple man trying to make my way in the universe. = ____5_____        -|
+|-------------------------------------------------------------------------------------|
+|                all names are capitalised <--> no hyphens, use space                 |
+|_____________________________________________________________________________________|
+"""
+
 #_._______________________________________________________________________
 #                                insane quiz
 
@@ -185,7 +243,7 @@ quiz_questions_i  =     ["_a_", "_b_"]
 
 quiz_difficulty_i = """
 _________________________________________________________________________________
-|------------------------>>>? Complete the series ?<<<---------------------------|
+|------------------------>^>? Complete the series ?<&<---------------------------|
 |-                                                                              -|
 |-                              9 = 4      21 = 9                               -|
 |-                             22 = 9      24 = 10                              -|
@@ -196,6 +254,41 @@ ________________________________________________________________________________
 |--------------------------------------------------------------------------------|
 |________________________________________________________________________________|
 """
+#_._______________________________________________________________________
+#                                 insane bonus quiz
+
+key__1__i_bonus =             "1"#"?"
+key_chain_i_bonus =           [key__1__i_bonus]
+quiz_questions_i_bonus  =     ["?",]
+
+quiz_difficulty_i_bonus = """
+_______________________________________________________________________________________
+|------------------------------>!>! Impossibro !<|<------------------------------------|
+|-                          - Find the missing letter -                               -|
+|-                            -----------------------                                 -|
+|-                                                                                    -|
+|-       A = 5   |   E = 9   |   I = 5   |   M = 9   |   Q = 5   |   U = 9   |        -|
+|-       Y = 5   |   F = 9   |   J = 5   |   N = 9   |   R = 5   |   V = 9   |        -|
+|-       Z = 5   |   C = 9   |   G = 5   |   K = 9   |   O = 5   |   S = 9   |        -|
+|-       W = 5   |   D = 9   |   H = 5   |   L = 9   |   P = 5   |   T = 9   |        -|
+|-                                 |   X = 5   |                                      -|
+|-                                                                                    -|
+|-                               _____       _____                                    -|
+|-                              |     |     |     |                                   -|
+|-         Find this letter --> |  ?  |     |  G  |                                   -|
+|-                              |_____|_____|_____|                                   -|
+|-                                    |     |                                         -|
+|-                                    |  B  |                                         -|
+|-                               _____|_____|_____                                    -|
+|-                              |     |     |     |                                   -|
+|-                              |  S  |     |  p  |                                   -|
+|-                              |_____|     |_____|                                   -|
+|-                                                                                    -|
+|--------------------------------------------------------------------------------------|
+|                            Write letter capitalised!                                 |
+|______________________________________________________________________________________|
+"""
+
 #_._______________________________________________________________________
 #                             Global Var
 
@@ -212,7 +305,6 @@ quiz_compleate_status_i = [0]
 
 #would like a hint system
 #yet to impliment method of resetting all states to new. #quiz_reset = [quiz_compleate_status_e[0], quiz_compleate_status_m[0],quiz_compleate_status_h[0], quiz_compleate_status_i[0]]
-you_win = random_ui_words("winner") * mega_points[0]
 difficulties_l = ["easy", "medium", "hard", "insane" ]
 #_._______________________________________________________________________
 #                      Quiz per difficulty. Functions:
@@ -235,7 +327,8 @@ def quiz_e():
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
         if attempts >= 5:
-            return "You lose"
+            print "Try again!"*10000 #hinders user from scrolling up in terminal to check answers. and looks fun
+            return the_quiz()
     mega_points[0] += 5
     quiz_compleate_status_e[0] = 1
     return the_quiz()
@@ -259,7 +352,8 @@ def quiz_e_bonus():
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
         if attempts >= 5:
-            return "You lose"
+            print "Try again!"*10000 #hinders user from scrolling up in terminal to check answers. and looks fun
+            return the_quiz()
     mega_points[0] += 45
     quiz_compleate_status_e[0] += 1
     return the_quiz()
@@ -283,8 +377,34 @@ def quiz_m():
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
         if attempts >= 5:
-            return "You lose"
+            print "Try again!"*10000 #hinders user from scrolling up in terminal to check answers. and looks fun
+            return the_quiz()
     mega_points[0]  += 15
+    quiz_compleate_status_m[0] += 1
+    return the_quiz()
+
+def quiz_m_bonus():
+    quiz_question = 0
+    attempts = 0
+    quiz_difficulty_m_bonus_proxy = quiz_difficulty_m_bonus
+    input_holder = "new"
+    print quiz_difficulty_m_bonus
+    while quiz_question < len(quiz_questions_m_bonus):
+        if attempts < 5:
+            input_holder = raw_input("Please fill in " + quiz_questions_m_bonus[quiz_question] + " ")
+            if input_holder == key_chain_m_bonus[quiz_question]:
+                quiz_question += 1
+                attempts = 0
+                quiz_difficulty_m_bonus_proxy = quiz_difficulty_m_bonus_proxy.replace(quiz_questions_m_bonus[quiz_question-1],key_chain_m_bonus[quiz_question-1])
+                print quiz_difficulty_m_bonus_proxy
+                print random_ui_words("winner")
+            else:
+                attempts += 1
+                print "Are you even human?.. You have",5 - attempts, "attempts left"
+        if attempts >= 5:
+            print "Try again!"*10000 #hinders user from scrolling up in terminal to check answers. and looks fun
+            return the_quiz()
+    mega_points[0] += 100
     quiz_compleate_status_m[0] += 1
     return the_quiz()
 
@@ -306,8 +426,34 @@ def quiz_h():
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
         if attempts >= 5:
-            return "You lose"
+            print "Try again!"*10000 #hinders user from scrolling up in terminal to check answers. and looks fun
+            return the_quiz()
     mega_points[0] += 30
+    quiz_compleate_status_h[0] += 1
+    return the_quiz()
+
+def quiz_h_bonus():
+    quiz_question = 0
+    attempts = 0
+    quiz_difficulty_h_bonus_proxy = quiz_difficulty_h_bonus
+    input_holder = "new"
+    print quiz_difficulty_h_bonus
+    while quiz_question < len(quiz_questions_h_bonus):
+        if attempts < 5:
+            input_holder = raw_input("Please fill in " + quiz_questions_h_bonus[quiz_question] + " ")
+            if input_holder == key_chain_h_bonus[quiz_question]:
+                quiz_question += 1
+                attempts = 0
+                quiz_difficulty_h_bonus_proxy = quiz_difficulty_h_bonus_proxy.replace(quiz_questions_h_bonus[quiz_question-1],key_chain_h_bonus[quiz_question-1])
+                print quiz_difficulty_h_bonus_proxy
+                print random_ui_words("winner")
+            else:
+                attempts += 1
+                print "Are you even human?.. You have",5 - attempts, "attempts left"
+        if attempts >= 5:
+            print "Try again!"*10000
+            return the_quiz()
+    mega_points[0] += 250
     quiz_compleate_status_h[0] += 1
     return the_quiz()
 
@@ -328,15 +474,41 @@ def quiz_i():
                 attempts += 1
                 print "Are you even human?.. You have",5 - attempts, "attempts left"
         if attempts >= 5:
-            return "You lose"
+            print "Try again!"*10000 #hinders user from scrolling up in terminal to check answers. and looks fun
+            return the_quiz()
     mega_points[0] += 50
     quiz_compleate_status_i[0] = True
+    return the_quiz()
+
+def quiz_i_bonus():
+    quiz_question = 0
+    attempts = 0
+    quiz_difficulty_i_bonus_proxy = quiz_difficulty_i_bonus
+    input_holder = "new"
+    print quiz_difficulty_i_bonus
+    while quiz_question < len(quiz_questions_i_bonus):
+        if attempts < 5:
+            input_holder = raw_input("Please fill in " + quiz_questions_i_bonus[quiz_question] + " ")
+            if input_holder == key_chain_i_bonus[quiz_question]:
+                quiz_question += 1
+                attempts = 0
+                quiz_difficulty_i_bonus_proxy = quiz_difficulty_i_bonus_proxy.replace(quiz_questions_i_bonus[quiz_question-1],key_chain_i_bonus[quiz_question-1])
+                print quiz_difficulty_i_bonus_proxy
+                print random_ui_words("winner")
+            else:
+                attempts += 1
+                print "Are you even human?.. You have",5 - attempts, "attempts left"
+        if attempts >= 5:
+            print "Try again!"*10000
+            return the_quiz()
+    mega_points[0] += 450
+    quiz_compleate_status_i[0] += 1
     return the_quiz()
 
 #_._______________________________________________________________________
 #                                  Game
 
-def quiz_printer():#this prints game_intro string with .format
+def quiz_printer():#this prints game_intro string with .format changes
     game_intro_proxy = game_intro
     easy_bonus = "What do we call young animals?    "
     medium_bonus = "Know these Albert Einstein-Quotes?"
@@ -345,27 +517,27 @@ def quiz_printer():#this prints game_intro string with .format
     if quiz_compleate_status_e[0] == 1:
             easy_bonus = "-       <<<BONUS ROUND>>>        -"
     if quiz_compleate_status_m[0] == 1:
-            medium_bonus = "-     <<<BONUS ROUND>>>          -"
+            medium_bonus = "-       <<<BONUS ROUND>>>        -"
     if quiz_compleate_status_h[0] == 1:
-            hard_bonus = "-     <<<BONUS ROUND>>>            -"
+            hard_bonus = "-       <<<BONUS ROUND>>>        -  "
     if quiz_compleate_status_i[0] == 1:
-            insane_bonus = "-     <<<BONUS ROUND>>>            -"
-
+            insane_bonus = "-       <<<BONUS ROUND>>>        -  "
+#################################################################
     if quiz_compleate_status_e[0] == 2:
-            easy_bonus = "-     <<<<<<<FIN>>>>>>>          -"
+            easy_bonus = "-       <<<<<<<FIN>>>>>>>        -"
     if quiz_compleate_status_m[0] == 2:
-            medium_bonus = "-     <<<<<<<FIN>>>>>>>          -"
+            medium_bonus = "-       <<<<<<<FIN>>>>>>>        -"
     if quiz_compleate_status_h[0] == 2:
-            hard_bonus = "-     <<<<<<<FIN>>>>>>>            -"
+            hard_bonus = "-       <<<<<<<FIN>>>>>>>        -  "
     if quiz_compleate_status_i[0] == 2:
-            insane_bonus = "-     <<<<<<<FIN>>>>>>>            -"
+            insane_bonus = "-       <<<<<<<FIN>>>>>>>        -  "
     print game_intro_proxy.format(ui_tweak("MegaPoints999"), easy_bonus, medium_bonus, hard_bonus, insane_bonus)
 
 def quiz_status(status_check): # status: 0 = none finished, 1 = bonus round available, 2 = completed both normal and bonus quiz
     if status_check == "AllDoneChek":
         if quiz_compleate_status_e[0] and quiz_compleate_status_m[0] and quiz_compleate_status_h[0] and quiz_compleate_status_i[0] == 2:
-            return False
-        return True
+            return True
+        return False
     if status_check == "easy":
         return quiz_compleate_status_e[0]
     if status_check == "medium":
@@ -386,19 +558,19 @@ def quiz_runner(diff):#Takes string input from quiz_select, and runs appropriate
         if quiz_status("medium") == 0:
             return quiz_m()
         if quiz_status("medium") == 1:
-            return "quiz_m_bonus()"
+            return quiz_m_bonus()
         return the_quiz()
     if diff == "hard":
         if quiz_status("hard") == 0:
             return quiz_h()
         if quiz_status("hard") == 1:
-            return "quiz_h_bonus()"
+            return quiz_h_bonus()
         return the_quiz()
     if diff == "insane":
         if quiz_status("insane") == 0:
             return quiz_i()
         if quiz_status("insane") == 1:
-            return "quiz_i_bonus()"
+            return quiz_i_bonus()
         return the_quiz()
 
 def quiz_select(user_input): #uses the user input from the_quiz to run the apropriate quiz, also allows for variants in answers as defined globaly by difficulty_answers_list
@@ -429,19 +601,17 @@ def the_quiz():#the_quiz
     quiz_printer()
     print random_ui_words("greetings")
     input_holder = "0"
-    if input_holder != "0":
-        quiz_printer()
-        print """ "Can you get all the points? Probably not... Type 1 for easy. <<" """
-    if quiz_status("AllDoneChek") == False:
-        print you_win
     input_holder = raw_input("Please type in a difficulty: ")
+    if quiz_status("AllDoneChek") == True:
+        print "You Win!!"*mega_points[0]
+        print " You got max ", mega_points[0], "Mega points!!"
+        return
     if input_check(input_holder) == 1 or 2 or 3 or 4:
         quiz_select(input_holder)
     if input_check(input_holder) == False:
         if difficulty_answers_list[4].find(input_holder) >= 2:#checks if the input was user wanting to quit,  if not assumes a mistake is made in input and returns quiz again for another go.
             ui_tweak("MegaPoints999")
-            print "Thanks for Quitting, I knew you couldn't finish! HAHAHAHA!!!"
+            print "Thanks for quitting, I knew you couldn't finish! HAHAHAHA!!!"
             return
-            input_holder = quiz_select(input_holder)
         the_quiz()
 the_quiz()
