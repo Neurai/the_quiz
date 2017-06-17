@@ -4,9 +4,9 @@
 #I use find (Ctrl + f) to change multiple items. Find "_new" and replace the name of the quiz
 #1, 2 and 3 are placeholders to test.
 
-key__1__new =             "1" #"kitten"
-key__2__new =             "2" #"chick"
-key__3__new =             "3" #"bunny"
+key__1__new =             "1" 
+key__2__new =             "2"
+key__3__new =             "3"
 key_chain_new =           [key__1__new, key__2__new, key__3__new]
 quiz_questions_new  =     ["__1_", "__2_", "__3_"]
 
