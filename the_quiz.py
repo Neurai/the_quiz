@@ -8,7 +8,7 @@ import random
 #                               Random/ tweaks
 
 mega_points = [0]
-def ui_tweak(ui_element):
+def ui_tweak(ui_element): #this was originaly set up to to print out the score allways being a length of 3.
     if ui_element == "MegaPoints999": #adjust the ui to fit up to 999, len(23)
         if mega_points[0] < 10:
             return "Total Mega Points! :" + "00" + str(mega_points[0])
@@ -18,7 +18,7 @@ def ui_tweak(ui_element):
             return "Total Mega Points! :" + "999"
         return "Total Mega Points! :" +  str(mega_points[0])
 
-def random_ui_words(style):
+def random_ui_words(style): #are there better methods to utilise big/long lists?
     greeings = ["Hello sunshine!", "Howdy partner!", "What's kickin' little chicken?", "Ahoy matey!", "Hiya!",
                 "At least we meet for the first time for the last time!", "I like your face.", "Whats cookin good lookin'?",
                 "Aloha", "Hola!", "Bonjour!", "Hallo!!", "Konnichiwa!", "I'm Batman!", "Here's Johnny!", "Ello govnuh!",
@@ -91,7 +91,7 @@ ________________________________________________________________________________
 |-                          ----------------------                              -|
 |-                            A cat has a __1___                                -|
 |-                            A chicken a __2__                                 -|
-|-                           A rabbit has a __3__                               -|
+|-                         A rabbit has a __3__                                 -|
 |--------------------------------------------------------------------------------|
 |________________________________________________________________________________|
 """
@@ -294,20 +294,24 @@ ________________________________________________________________________________
 
 difficulty_answers_list = ["   easy Easy 1", "    medium Medium 2", "    hard Hard 3",#The possible user input options available for each difficulty\/. i use the .find method to scan this list against the users input, allowing for more than one option when typing.
                             "     insane Insane 4","     q Q quit QUIT exit EXIT Quit "]
-#def quiz_status(n): \/
+#def quiz_status(n): 0 = new 1 = bonus 2 = finished
 quiz_compleate_status_e = [0]
 quiz_compleate_status_m = [0]
 quiz_compleate_status_h = [0]
 quiz_compleate_status_i = [0]
+difficulties_l = ["easy", "medium", "hard", "insane" ]
 
 #_._______________________________________________________________________
 #                              Extra features
 
-#would like a hint system
-#yet to implement method of resetting all states to new. #quiz_reset = [quiz_compleate_status_e[0], quiz_compleate_status_m[0],quiz_compleate_status_h[0], quiz_compleate_status_i[0]]
-difficulties_l = ["easy", "medium", "hard", "insane" ]
+#1, Would like a hint system (Might reduce points)
+#2, Leaderboard hosted online (to test how this works)
+#3, Implement method of resetting all states to new. #quiz_reset = [quiz_compleate_status_e[0], quiz_compleate_status_m[0],quiz_compleate_status_h[0], quiz_compleate_status_i[0]]
+#4, Cheat codes, double points, visualise all answers, repeat quiz for point stacking
+#5, After all rounds are complete, offer a choice to gess a random number out of 10, if right points are doubled, if not quiz is reset or quits.
+
 #_._______________________________________________________________________
-#                      Quiz per difficulty. Functions: these are the functions running each quiz
+#     Quiz per difficulty. Functions: these are the functions running each quiz
 def quiz_e():
     quiz_question = 0
     attempts = 0
@@ -547,7 +551,7 @@ def quiz_status(status_check): # status: 0 = none finished, 1 = bonus round avai
     if status_check == "insane":
         return quiz_compleate_status_i[0]
 
-def quiz_runner(diff):#Takes string input from quiz_select, and runs appropriate quiz and checks if bonus1 or first0.
+def quiz_runner(diff):#Takes string quiz_select as input, and runs appropriate quiz and checks if bonus1 or first0.
     if diff == "easy":
         if quiz_status("easy") == 0:
             return quiz_e()
@@ -600,11 +604,10 @@ def input_check(user_input):#used to check if inputs are correct answers without
 def the_quiz():#the_quiz
     quiz_printer()
     print random_ui_words("greetings")
-    input_holder = "0"
     input_holder = raw_input("Please type in a difficulty: ")
-    if quiz_status("AllDoneChek") == True:#are all options complete?
+    if quiz_status("AllDoneChek") == True:# are all options complete?
         print "You Win!!"*mega_points[0]
-        print " You got max ", mega_points[0], "Mega points!!"
+        print " You got max ", mega_points[0], " Mega points!!"
         return
     if input_check(input_holder) == 1 or 2 or 3 or 4:
         quiz_select(input_holder)
@@ -613,5 +616,5 @@ def the_quiz():#the_quiz
             ui_tweak("MegaPoints999")
             print "Thanks for quitting, I knew you couldn't finish! HAHAHAHA!!!"
             return
-        the_quiz()
+        the_quiz() #PLZ HELP!! I am interested to know how this works as a loop, it suited me well here but is it a bad practice?
 the_quiz()
