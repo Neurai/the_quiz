@@ -309,7 +309,7 @@ quiz_insane_data = {
 #_._______________________________________________________________________
 #                              Quiz functions
 
-def quiz_printer():
+def quiz_select_printer():
     #Behavior:
         #prints an updated UI for player to select a difficulty from
     #returns:
@@ -565,7 +565,7 @@ def the_quiz(state):
         print "You Win!!"*9001
         print " You got max ", mega_points[0], " Mega points!!"
         return ""
-    quiz_printer()
+    quiz_select_printer()
     print quiz_state_message(state)
     correct_game_option = input_check(raw_input("Please type in a difficulty: ")) #asks for player input then checks if valid with input_check()
     if correct_game_option in quiz_select['AnswerVariants']:
