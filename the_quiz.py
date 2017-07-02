@@ -5,14 +5,14 @@ import random
 
 mega_points = [000] #the number of mega points the player has.
 
-def ui_tweak(ui_element):
+def total_m_points(style):#needs more space (0000) if more levels are implemented.
     #Args:
-        #ui_element: the element of the ui output will appear
+        #style: this selects what type/style of message to return.
     #Behavior:
-        #used to print out mega_points in style!
-    #returns:
+        #used to print out mega_points in style while keeping a consistant length
+    #returns: "
         #the string "Total Mega Points! :" and the amount of points the player has.
-    if ui_element == "MegaPoints999": #adjust the ui to fit 999, len(23)
+    if style == "MegaPoints999": #adjust the ui to fit 999, len(23)
         if mega_points[0] < 10:
             return "Total Mega Points! :" + "00" + str(mega_points[0])
         if mega_points[0] < 100:
@@ -29,9 +29,9 @@ def random_ui_words(style):
             #used to give character to tha game.
     #returns:
         #a random string for printing.
-    greetings = ["Hello sunshine!", "Howdy partner!", "What's kickin' little chicken?", "Ahoy matey!", "Hiya!",
+    greetings = ["Hello sunshine!", "Howdy partner!", "What's kickin' little chicken?", "Ahoy matey!", "G'day", "Hiya!",
                 "At least we meet for the first time for the last time!", "I like your face.", "Whats cookin good lookin'?",
-                "Aloha", "Hola!", "Bonjour!", "Hallo!!", "Konnichiwa!", "I'm Batman!", "Here's Johnny!", "Ello govnuh!",
+                "Aloha", "Hola!", "Bonjour!", "Hallo!!", "G'day", "Konnichiwa!", "I'm Batman!", "Here's Johnny!", "Ello govnuh!",
                 "Top o the mornin to ya!", "GOOOOOD MORNING VIETNAM!", "Why hello there!", "Look who it is!",
                 "Look what the cat dragged in!", "greets!", "what's cooking?", "What's cracking?", "Yello!",
                 "A-Yo!", "G'day!", "Good to see you!", "Nice to see you!", "Long time no see!",
@@ -71,7 +71,7 @@ def random_ui_words(style):
 
 
 quiz_select = {
-    'AnswerVariants': { #these are the answers available for each option"
+    'AnswerVariants': { #these are the answers available for each option as input from the palyer
             'easy':     "    easy Easy 1",
             'medium':   "    medium Medium 2",
             'hard':     "    hard Hard 3",
@@ -93,7 +93,9 @@ quiz_select = {
         |----------------------------|----------------------------|
         |- >>>>>>>>>> Type in "Quit" or "q" to exit <<<<<<<<<<<< -|
         |__________-=|=-_____________|___________-=|=-____________|
-        """#this is the main UI, player selects a difficulty to play or quits
+        """, #this is the main UI, player selects a difficulty to play or quits.
+        'QuizGameCountOffSet': 1 #offsets the count on the number of quizzes a difficulty has-
+            #-the number of other elements inside a difficulties dictionary that's not a quiz.
     }
 #_._______________________________________________________________________
 #                             Easy quiz data
@@ -229,17 +231,17 @@ quiz_hard_data = {
             |--------------------->!>? Know who said these Star Wars-Quotes ?<|<------------------|
             |-                              - Who said these lines?? -                           -|
             |-                                ______________________                             -|
-            |-  Help me, Obi-Wan Kenobi. You're my only hope.  -----------   = _____1_____       -|
-            |-  The Force will be with you. Always.  ---------------------   = ______2_______    -|
-            |-  Never tell me the odds!   --------------------------------   = ___3____          -|
-            |-  Just for once, let me look on you with my own eyes. ------   = _______4________  -|
+            |-  Help me, Obi-Wan Kenobi. You're my only hope.  -----------   = __1________       -|
+            |-  The Force will be with you. Always.  ---------------------   = __2___________    -|
+            |-  Never tell me the odds!   --------------------------------   = __3_____          -|
+            |-  Just for once, let me look on you with my own eyes. ------   = __4_____________  -|
             |-  I'm just a simple man trying to make my way in the universe. = __5_______        -|
             |-------------------------------------------------------------------------------------|
             |                all names are capitalized <--> no hyphens, use space                 |
             |_____________________________________________________________________________________|
             """,
             'answers':    ["Leia Organa", "Obi Wan Kenobi", "Han Solo", "Anakin Skywalker", "Jango Fett"],
-            "ReplaceKey": ["___1_______", "______2_______", "___3____","_______4________", "__5_______"]
+            "ReplaceKey": ["__1________", "__2___________", "__3_____","__4_____________", "__5_______"]
         }
     }
 #_._______________________________________________________________________
@@ -317,7 +319,7 @@ def quiz_printer():
     medium_ui_entry = "-       <<<  ROUND " + str(quiz_medium_data['QuizFeature']['CurrentLvl']) + "  >>>        -"
     hard_ui_entry = "-       <<<  ROUND " + str(quiz_hard_data['QuizFeature']['CurrentLvl']) + "  >>>        -"
     insane_ui_entry = "-       <<<  ROUND " + str(quiz_insane_data['QuizFeature']['CurrentLvl']) + "  >>>        -"
-
+    ###
     if quiz_easy_data['QuizFeature']['CurrentLvl'] == len(quiz_easy_data):
             easy_ui_entry = "-       <<<<<<<FIN>>>>>>>        -"
     if quiz_medium_data['QuizFeature']['CurrentLvl'] == len(quiz_medium_data):
@@ -326,7 +328,7 @@ def quiz_printer():
             hard_ui_entry = "-       <<<<<<<FIN>>>>>>>        -"
     if quiz_insane_data['QuizFeature']['CurrentLvl'] == len(quiz_insane_data):
             insane_ui_entry = "-       <<<<<<<FIN>>>>>>>        -"
-    print game_intro_proxy.format(ui_tweak("MegaPoints999"), easy_ui_entry, medium_ui_entry, hard_ui_entry, insane_ui_entry)
+    print game_intro_proxy.format(total_m_points("MegaPoints999"), easy_ui_entry, medium_ui_entry, hard_ui_entry, insane_ui_entry)
 
 def quiz_feature_update(diff,state):
     #Args:
@@ -339,7 +341,7 @@ def quiz_feature_update(diff,state):
         #the_quiz with a valid string "win", "TryAgain" to print appropriate returning message.
     if state == "win":
         if diff == "easy":
-            mega_points[0] =  mega_points[0] + (quiz_easy_data["QuizFeature"]["CompletePoints"]*quiz_easy_data['QuizFeature']['CurrentLvl'])
+            mega_points[0] =  mega_points[0] + (quiz_easy_data["QuizFeature"]["CompletePoints"]*quiz_easy_data['QuizFeature']['CurrentLvl']) #awards mega points multiplied by the current level
             quiz_easy_data['QuizFeature']['CurrentLvl'] = quiz_easy_data['QuizFeature']['CurrentLvl'] + 1;
         if diff == "medium":
             mega_points[0] =  mega_points[0] + (quiz_medium_data["QuizFeature"]["CompletePoints"]*quiz_medium_data['QuizFeature']['CurrentLvl'])
@@ -352,12 +354,13 @@ def quiz_feature_update(diff,state):
             quiz_insane_data['QuizFeature']['CurrentLvl'] = quiz_insane_data['QuizFeature']['CurrentLvl'] + 1;
         return the_quiz('win')
     if state == "TryAgain":
-        print "Try again!"*9001 #Hinders player from scrolling up in the terminal to check answers. And looks fun
+        print "Try again!"*9001 #.Just for looks
         return the_quiz('TryAgain')
 
 def quiz_e():
     #Behavior:
         #Runs the easy quiz using the current level value in quiz_easy_data['QuizFeature']['CurrentLvl']
+            #player gets to answer the quiz by filling out the blanks
     #returns:
         #provides quiz_feature_update() with two arguments.
             #difficulty:what the quiz difficulty is
@@ -377,7 +380,7 @@ def quiz_e():
                     print random_ui_words("winner") #18
                     break
                 quiz_easy_data['QuizFeature']['attempts'] = quiz_easy_data['QuizFeature']['attempts'] +1;
-                print "Are you even human?.. You have",5 - quiz_easy_data['QuizFeature']['attempts'], "attempts left"
+                print "Are you even human?.. You have",quiz_easy_data['QuizFeature']['MaxAttempts'] - quiz_easy_data['QuizFeature']['attempts'], "attempts left"
             else:
                 return  quiz_feature_update("easy","TryAgain")
     return quiz_feature_update("easy","win")
@@ -385,6 +388,7 @@ def quiz_e():
 def quiz_m():
     #Behavior:
         #Runs the medium quiz using the current level value in quiz_medium_data['QuizFeature']['CurrentLvl']
+            #player gets to answer the quiz by filling out the blanks
     #returns:
         #provides quiz_feature_update() with two arguments.
             #difficulty: tells quiz_feature_update() what the quiz difficulty was
@@ -404,7 +408,7 @@ def quiz_m():
                     print random_ui_words("winner") #18
                     break
                 quiz_medium_data['QuizFeature']['attempts'] = quiz_medium_data['QuizFeature']['attempts'] +1;
-                print "Are you even human?.. You have",5 - quiz_medium_data['QuizFeature']['attempts'], "attempts left"
+                print "Are you even human?.. You have",quiz_medium_data['QuizFeature']['MaxAttempts'] - quiz_medium_data['QuizFeature']['attempts'], "attempts left"
             else:
                 return  quiz_feature_update("medium","TryAgain")
     return quiz_feature_update("medium","win")
@@ -412,6 +416,7 @@ def quiz_m():
 def quiz_h():
     #Behavior:
         #Runs the hard quiz using the current level value in quiz_hard_data['QuizFeature']['CurrentLvl']
+            #player gets to answer the quiz by filling out the blanks
     #returns:
         #provides quiz_feature_update() with two arguments.
             #difficulty: tells quiz_feature_update() what the quiz difficulty was
@@ -431,7 +436,7 @@ def quiz_h():
                     print random_ui_words("winner") #18
                     break
                 quiz_hard_data['QuizFeature']['attempts'] = quiz_hard_data['QuizFeature']['attempts'] +1;
-                print "Are you even human?.. You have",5 - quiz_hard_data['QuizFeature']['attempts'], "attempts left"
+                print "Are you even human?.. You have",quiz_hard_data['QuizFeature']['MaxAttempts'] - quiz_hard_data['QuizFeature']['attempts'], "attempts left"
             else:
                 return  quiz_feature_update("hard","TryAgain")
     return quiz_feature_update("hard","win")
@@ -439,6 +444,7 @@ def quiz_h():
 def quiz_i():
     #Behavior:
         #Runs the insane quiz using the current level value in quiz_insane_data['QuizFeature']['CurrentLvl']
+            #player gets to answer the quiz by filling out the blanks
     #returns:
         #provides quiz_feature_update() with two arguments.
             #difficulty: tells quiz_feature_update() what the quiz difficulty was
@@ -458,7 +464,7 @@ def quiz_i():
                     print random_ui_words("winner") #18
                     break
                 quiz_insane_data['QuizFeature']['attempts'] = quiz_insane_data['QuizFeature']['attempts'] +1;
-                print "Are you even human?.. You have",5 - quiz_insane_data['QuizFeature']['attempts'], "attempts left"
+                print "Are you even human?.. You have",quiz_insane_data['QuizFeature']['MaxAttempts'] - quiz_insane_data['QuizFeature']['attempts'], "attempts left"
             else:
                 return quiz_feature_update("insane","TryAgain")
     return quiz_feature_update("insane","win")
@@ -468,10 +474,11 @@ def alldonecheck():
         #Checks if all content the has been complete
     #returns:
         #True or False
-    if quiz_easy_data['QuizFeature']['CurrentLvl'] > len(quiz_easy_data):
-        if quiz_medium_data['QuizFeature']['CurrentLvl'] > len(quiz_medium_data):
-            if quiz_hard_data['QuizFeature']['CurrentLvl'] > len(quiz_hard_data):
-                if quiz_insane_datadata['QuizFeature']['CurrentLvl'] > len(quiz_insane_data):
+    offset = quiz_select['QuizGameCountOffSet']
+    if quiz_easy_data['QuizFeature']['CurrentLvl'] > len(quiz_easy_data) - offset:
+        if quiz_medium_data['QuizFeature']['CurrentLvl'] > len(quiz_medium_data) - offset:
+            if quiz_hard_data['QuizFeature']['CurrentLvl'] > len(quiz_hard_data) - offset:
+                if quiz_insane_data['QuizFeature']['CurrentLvl'] > len(quiz_insane_data) - offset:
                     return True
     return False
 
@@ -482,26 +489,33 @@ def quiz_runner(diff):
         #selects the quiz to run matching player input
     #returns:
         #runs the quiz matching target difficulty
-    if diff == "easy" and quiz_easy_data['QuizFeature']['CurrentLvl'] < len(quiz_easy_data):
+    if diff == "easy":
+        if quiz_easy_data['QuizFeature']['attempts'] >= quiz_easy_data['QuizFeature']['MaxAttempts']:
+            return the_quiz('OutOfAttempts')
         return quiz_e()
-    if diff == "medium"and quiz_easy_data['QuizFeature']['CurrentLvl'] < len(quiz_medium_data):
-        return quiz_m()
-    if diff == "hard"and quiz_hard_data['QuizFeature']['CurrentLvl'] < len(quiz_hard_data):
+    if diff == "medium":
+        if quiz_medium_data['QuizFeature']['attempts'] >= quiz_medium_data['QuizFeature']['MaxAttempts']:
+            return the_quiz('OutOfAttempts')
+    return quiz_m()
+    if diff == "hard":
+        if quiz_hard_data['QuizFeature']['attempts'] >= quiz_hard_data['QuizFeature']['MaxAttempts']:
+            return the_quiz('OutOfAttempts')
         return quiz_h()
-    if diff == "insane"and quiz_insane_data['QuizFeature']['CurrentLvl'] < len(quiz_insane_data):
+    if diff == "insane":
+        if quiz_insane_data['QuizFeature']['attempts'] >= quiz_insane_data['QuizFeature']['MaxAttempts']:
+            return the_quiz('OutOfAttempts')
         return quiz_i()
-    return the_quiz("win")
+    return the_quiz("TryAgain")
 
 def input_check(player_input):
     #Args:
         #player_input:this is what the player typed attempting to quit/select a difficulty.
     #Behavior:
         #allows for variants in the users input.
-            #eg quit can be players input in the string: "    q Q quit QUIT exit EXIT Quit"
+            #eg a quit will be when the players input is in the string: "    q Q quit QUIT exit EXIT Quit"
     #returns:
         # returns the string representing a difficulty or quit attempt.
             #if players input doesn't match any answer_variants[] the string "InputError" gets returned.
-
     if quiz_select['AnswerVariants']['easy'].find(player_input) >= 2:
         return "easy"
     if quiz_select['AnswerVariants']['medium'].find(player_input) >= 2:
@@ -529,36 +543,40 @@ def quiz_state_message(state):
     if state == "new":
         return random_ui_words("greetings")
     if state == "TryAgain":
-        return "__ -- Try Again!!-- __"
+        return "__ -- ' Try Again!! ' -- __"
     if state == "win":
         return random_ui_words("winner")
+    if state == 'OutOfAttempts':
+        return "_-'No more attempts left'-_"
+
 
 def the_quiz(state):
-    #Args: #########  quiz_select['AnswerVariants']['quiz_select_ui']
+    #Args:
         #state:has user:
             #started new? "new"
-            #failed something? "new"
+            #failed something? "TryAgain"
             #won something? "winner"
     #Behavior:
-        #displays the quiz_select_ui and asks player to,
-            #type out a difficulty and select a quiz or quit
+        #displays the quiz_select_ui and asks player to type in a difficulty to select a quiz or quit.
     #returns:
-        #uses player's input to start the appropriate quiz difficulty with quiz_runner(correct_game_option) or quits
-        #if the input was invalid returns the_quiz('TryAgain') for new input.
-    quiz_printer()
-    print quiz_state_message(state)
-    correct_game_option = input_check(raw_input("Please type in a difficulty: ")) #asks for player input then checks if valid with input_check()
+        #uses player's input to start the appropriate quiz difficulty with quiz_runner(correct_game_option) or quits/return ""
+            #if the input was invalid/"InputError" returns the_quiz('TryAgain') for a new input from the player.
     if alldonecheck():
         print "You Win!!"*9001
         print " You got max ", mega_points[0], " Mega points!!"
-        return
+        return ""
+    quiz_printer()
+    print quiz_state_message(state)
+    correct_game_option = input_check(raw_input("Please type in a difficulty: ")) #asks for player input then checks if valid with input_check()
     if correct_game_option in quiz_select['AnswerVariants']:
-        if correct_game_option == "quit": #checks if the input was player wanting to quit,  if not assumes a mistake is made in input and returns quiz again for another go.
-            print "Thanks for quitting, I knew you couldn't finish! HAHAHAHA!!!"
-            return ui_tweak("MegaPoints999")
+        if correct_game_option == "quit":
+            print "Thanks for quitting, We all knew you couldn't finish! HAHAHAHA!!!"
+            return total_m_points("MegaPoints999")
         quiz_runner(correct_game_option)
+        return ""
     if correct_game_option == "InputError":
         the_quiz("TryAgain")
+        return ""
     the_quiz('new')
 
 the_quiz('new')
