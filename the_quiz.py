@@ -382,6 +382,7 @@ def quiz_e():
                 return  quiz_feature_update("easy","TryAgain")
     return quiz_feature_update("easy","win")
 
+def quiz_m():
     #Behavior:
         #Runs the medium quiz using the current level value in quiz_medium_data['QuizFeature']['CurrentLvl']
     #returns:
